@@ -1,3 +1,4 @@
+import 'package:advance_exam/screen/detail/provider/detail_provider.dart';
 import 'package:advance_exam/screen/home/model/home_model.dart';
 import 'package:advance_exam/screen/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void initState() {
     super.initState();
     context.read<HomeProvider>().getApiData();
+    context.read<DetailProvider>().getBookmark;
   }
 
   @override
@@ -26,6 +28,7 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Product Detail"),
+        backgroundColor: const Color(0xfff7f2ed),
       ),
       backgroundColor: const Color(0xfff7f2ed),
       body: Padding(
@@ -99,8 +102,10 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Color(0xff704f38),
-        onPressed: () {},
+        backgroundColor: const Color(0xff704f38),
+        onPressed: () {
+          context.read<DetailProvider>().setBookMark(model.image);
+        },
         label: const Row(
           children: [
             Text(

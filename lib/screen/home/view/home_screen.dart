@@ -27,10 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          
           "Home",
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
+        backgroundColor: const Color(0xfff7f2ed),
         centerTitle: true,
       ),
       backgroundColor: const Color(0xfff7f2ed),
@@ -66,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
               onChanged: (value) {},
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             FutureBuilder(
               future: providerW!.model,
               builder: (context, snapshot) {
@@ -127,14 +129,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 300,
               ),
               const Divider(),
-              const Row(
-                children: [
-                  Text(
-                    "Cart detail ",
-                  ),
-                  Spacer(),
-                  Icon(Icons.shopping_cart),
-                ],
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, 'cart');
+                },
+                child: const Row(
+                  children: [
+                    Text(
+                      "Cart detail ",
+                    ),
+                    Spacer(),
+                    Icon(Icons.shopping_cart),
+                  ],
+                ),
               ),
               const Divider(),
               const Row(

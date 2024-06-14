@@ -1,3 +1,4 @@
+import 'package:advance_exam/screen/detail/provider/detail_provider.dart';
 import 'package:advance_exam/screen/home/provider/home_provider.dart';
 import 'package:advance_exam/utils/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ void main() {
         ChangeNotifierProvider.value(
           value: HomeProvider(),
         ),
+        ChangeNotifierProvider.value(
+          value: DetailProvider(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
