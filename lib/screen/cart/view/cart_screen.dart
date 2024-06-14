@@ -21,9 +21,14 @@ class _CartScreenState extends State<CartScreen> {
       body: ListView.builder(
         itemCount: context.watch<DetailProvider>().bookMark.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            trailing:
-                Image.network(context.read<DetailProvider>().bookMark[index]),
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              leading: Image.network(
+                context.read<DetailProvider>().bookMark[index],
+                fit: BoxFit.cover,
+              ),
+            ),
           );
         },
       ),

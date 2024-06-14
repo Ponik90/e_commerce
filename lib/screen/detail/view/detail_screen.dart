@@ -104,7 +104,9 @@ class _DetailScreenState extends State<DetailScreen> {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: const Color(0xff704f38),
         onPressed: () {
-          context.read<DetailProvider>().setBookMark(model.image);
+          context
+              .read<DetailProvider>()
+              .setBookMark([model.image, model.title]);
         },
         label: const Row(
           children: [
